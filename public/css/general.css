@@ -1,6 +1,19 @@
+@font-face {
+    font-family: 'Skia';
+    src:url('Skia.ttf.woff') format('woff'),
+        url('Skia.ttf.svg#Skia') format('svg'),
+        url('Skia.ttf.eot'),
+        url('Skia.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+	height: 100%;
+}
 body {
 	background: radial-gradient(#255D6E, #1F3139);
 	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: fixed; 
+	font-family: 'Skia';
 }
+
