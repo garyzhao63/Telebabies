@@ -1,6 +1,7 @@
 .play-button {
-	max-height: 50vh; 
+	max-height: 40vh; 
 	width: 70vw; 
+	max-width: 40vh; 
 	position: absolute;
 	top: 50%; 
 	left: 50%;
@@ -13,7 +14,7 @@
 	font-size: 4vw; 
 	color: #E3E3E3; 
 	left: 50%;
-	top: calc(50% - 45vw);
+	top: 25vh; 
 	margin-right: -50%; 
 	transform: translate(-50%, -50%);
 	z-index: 1; 
@@ -21,6 +22,8 @@
 
 .setting-button {
 	width: 13vw; 
+	max-width: 13vh; 
+	max-height: 13vh; 
 	position: absolute;
 	right: 5vw;
 	bottom: 5vw;
@@ -28,6 +31,8 @@
 
 .profile-button {
 	width: 13vw; 
+	max-width: 13vh; 
+	max-height: 13vh; 
 	position: absolute;
 	left: 5vw;
 	bottom: 5vw;
