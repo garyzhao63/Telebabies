@@ -24,6 +24,22 @@ body.main-screen {
 	font-family: 'Skia';
 }
 
+.back-button {
+	width: 11vw; 
+	max-width: 9vh; 
+	max-height: 9vh; 
+	position: absolute;
+	left: 3vw;
+	top: 3vh;
+}
 
+.home-button {
+	width: 11vw; 
+	max-width: 9vh; 
+	max-height: 9vh; 
+	position: absolute;
+	right: 3vw;
+	top: 3vh;
+}
 
 

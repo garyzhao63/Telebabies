@@ -10,14 +10,14 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
-		$("#routine-button").click(function(e) {
+	$("#routine-button").click(function(e) {
 			e.preventDefault(); 
 			if ($(".switch-button").attr('src') == '/images/switchoff.png') {
 				$(".switch-button").attr("src","/images/switchon.png");
-				$(".routines").attr("display", "inherit"); 
+				$(".routines").show(); 
 			} else {
 				$(".switch-button").attr("src","/images/switchoff.png");
-					$(".routines").attr("display", "none"); 
+				$(".routines").hide(); 
 			}
 	}); 
 }
