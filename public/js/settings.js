@@ -14,8 +14,10 @@ function initializePage() {
 			e.preventDefault(); 
 			if ($(".switch-button").attr('src') == '/images/switchoff.png') {
 				$(".switch-button").attr("src","/images/switchon.png");
+				$(".routines").attr("display", "inherit"); 
 			} else {
 				$(".switch-button").attr("src","/images/switchoff.png");
+					$(".routines").attr("display", "none"); 
 			}
 	}); 
 }

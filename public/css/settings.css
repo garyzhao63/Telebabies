@@ -12,7 +12,23 @@
 .notes {
 	margin-left: 4vw;
 	color: #E3E3E3;
-	vertical-align: middle; 
+}
+
+.notes-routine-left {
+	position: relative;
+	float: left; 
+  	top: 50%;
+  	transform: translateY(-50%);
+	margin-left: 4vw;
+	color: #E3E3E3;
+}
+
+.notes-routine-right {
+	position: relative;
+	float: right;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	color: #D3A9AC;
 }
 
 .back-button {
@@ -56,6 +72,13 @@
 	background-color: #255D6E; 
 	height: 12vh;
 	width: 100vw;
-
+	display: none; 
 	font-size: 2vh;
+}
+
+.right-arrow {
+	position: absolute;
+	right: 2vw; 
+	height: 6vh;
+	margin-top: 2.5vh;
 }
