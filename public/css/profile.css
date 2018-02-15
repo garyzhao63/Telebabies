@@ -1,0 +1,17 @@
+.home-button {
+	width: 13vw; 
+	max-width: 13vh; 
+	max-height: 13vh; 
+	position: absolute;
+	right: 5vw;
+	top: 5vw;
+}
+
+.back-button {
+	width: 13vw; 
+	max-width: 13vh; 
+	max-height: 13vh; 
+	position: absolute;
+	left: 5vw;
+	top: 5vw;
+}

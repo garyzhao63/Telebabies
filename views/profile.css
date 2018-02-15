@@ -1,0 +1,40 @@
+body {
+	background: linear-gradient(#1F3139, #255D6E);
+	background-repeat: no-repeat;
+	font-family: 'Skia';
+}
+
+body.main-screen {
+	background: radial-gradient(#255D6E, #1F3139);
+	background-repeat: no-repeat;
+	font-family: 'Skia';
+}
+
+.title {
+	position: absolute;
+	font-size: 4vw; 
+	color: #E3E3E3; 
+	left: 50%;
+	top 
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
+	z-index: 1; 
+}
+
+.back-button {
+	width: 11vw; 
+	max-width: 9vh; 
+	max-height: 9vh; 
+	position: absolute;
+	left: 3vw;
+	top: 3vh;
+}
+
+.home-button {
+	width: 11vw; 
+	max-width: 9vh; 
+	max-height: 9vh; 
+	position: absolute;
+	right: 3vw;
+	top: 3vh;
+}
