@@ -15,7 +15,8 @@
     "express": "3.x",
     "express3-handlebars": "*",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "watson-developer-cloud": "^3.0.6"
   },
   "engines": {
     "node": "8.9.4"

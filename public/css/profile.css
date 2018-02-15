@@ -16,26 +16,40 @@ h1 {
 	color:"white";
 	font-size: 12px;
 }
+
+ol {
+  bottom;
+  padding: 0;
+  	height: 1vh;
+	width: 100vw;
+
+}
+
+ol li {
+ 	bottom;
+	border: 1px black solid;
+	text-indent: 3vw;
+	background-color: #255D6E; 
+	font-size: 7vw;
+	list-style-type: none;
+
+
+}
 .title {
 	position: absolute;
 	font-size: 4vw; 
 	color: #E3E3E3; 
 	left: 50%;
-	top 
+	top: 6vh;
 	margin-right: -50%; 
 	transform: translate(-50%, -50%);
 	z-index: 1; 
 }
 
-.profile-bar {
-	border: 1px black solid;
-	margin-top: -1px;
-	background-color: #255D6E; 
-	height: 12vh;
-	width: 100vw;
-	display: none; 
-	font-size: 2vh;
-	color: white;
+.profile-photo {
+	position: relative;
+	top: 75%; 
+	left: 50%;
 }
 
 .back-button {
