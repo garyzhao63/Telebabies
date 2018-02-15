@@ -1,11 +1,9 @@
-.play-button {
-	max-height: 40vh; 
-	width: 70vw; 
-	max-width: 40vh; 
+.plus {
 	position: absolute;
-	top: 50%; 
+	top: 90%; 
 	left: 50%;
 	margin-right: -50%; 
+	margin-bottom: -50%;
 	transform: translate(-50%, -50%);
 }
 
@@ -64,4 +62,13 @@
 	right: 2vw; 
 	height: 6vh;
 	margin-top: 2.5vh;
+}
+
+.set-alert {
+	position: absolute;
+	font-size: 10vw;
+	top: 6%;
+	left: 35%;
+	transform: translate(-25%, -50%);
+
 }
