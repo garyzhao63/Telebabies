@@ -1,0 +1,21 @@
+ol {
+  width: 100%;
+  padding: 0;
+}
+
+ol li {
+ 	width: 100%;
+	border: 1px black solid;
+	text-indent: 3vw;
+	background-color: #255D6E; 
+	font-size: 7vw;
+	list-style-type: none;
+}
+
+.set-alert {
+	font-size: 10vw;
+	position: absolute;
+	top: 20%;
+	left: 35%;
+	transform: translate(-25%, -50%);;
+}
