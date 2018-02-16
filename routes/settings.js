@@ -3,9 +3,9 @@
  * GET settings page.
  */
 
+var data = require('../user.json');
+
 exports.view = function(req, res) {
-	res.render('settings', {
-		image: '/images/switchoff.png', 
-		link: '/routine'
-	}); 
+	console.log(data.rickord123[3]);
+	res.render('settings', data.rickord123[3]); 
 }
