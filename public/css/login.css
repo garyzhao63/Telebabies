@@ -1,0 +1,31 @@
+.username {
+	position: absolute;
+	top: 5vh; 
+	left: 50%;
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
+	left: 50%;
+	font-size: 3vh;
+}
+
+.password {
+	position: absolute;
+	top: 20vh; 
+	left: 50%;
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
+	left: 50%;
+    font-size: 3vh;
+}
+
+.login-button {
+	margin-top: 10vw;
+	width: 70vw;
+	position: absolute;
+	top: 35vh; 
+	left: 50%;
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
+	left: 50%;
+    font-size: 3vh;
+}
