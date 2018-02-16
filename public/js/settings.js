@@ -20,9 +20,4 @@ function initializePage() {
 				$(".routines").hide(); 
 			}
 	}); 
-
-	$("#plus-button").click(function(e) {
-		e.preventDefault(); 
-		//TODO: go to alert page
-	}); 
 }
