@@ -33,7 +33,7 @@
 	height: 20vh;
 	width: 20vh;
 	position: absolute;
-	top: 20vh; 
+	top: 18vh; 
 }
 
 .back-button {
@@ -65,7 +65,7 @@
 .username{
 	position: absolute;
 	float: right;
-  	top: 41vh;
+  	top: 39vh;
 	font-size: 7vw;
   	color: #D3A9AC;
   	margin-left: auto;
