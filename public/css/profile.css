@@ -1,52 +1,16 @@
-body {
-	background: linear-gradient(#1F3139, #255D6E);
-	background-repeat: no-repeat;
-	font-family: 'Skia';
-	color: #E3E3E3;
-}
-
-body.main-screen {
-	background: radial-gradient(#255D6E, #1F3139);
-	background-repeat: no-repeat;
-	font-family: 'Skia';
-	color: #E3E3E3;
-}
-
-h1 {
-	color:"white";
-	font-size: 12px;
-}
-
-ol {
-  bottom;
-  padding: 0;
-  	height: 1vh;
-	width: 100vw;
-
-}
-
-ol li {
- 	bottom;
-	border: 1px black solid;
-	text-indent: 3vw;
-	background-color: #255D6E; 
-	font-size: 7vw;
-	list-style-type: none;
-}
-
 .infobars {
-	bottom;
+	position:relative;
 	border: 1px black solid;
-	text-indent: 3vw;
 	background-color: #255D6E; 
 	font-size: 7vw;
 	height: 7vh;
 	width: 100vw;
+	color: #E3E3E3; 
 }
 
 .padding {
 	background-color: transparent;
-	height: 7vh;
+	height: 5vh;
 	width: 100vw;
 }
 
@@ -62,9 +26,14 @@ ol li {
 }
 
 .profile-photo {
-	position: relative;
-	top: 75%; 
-	left: 50%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	left: 32%;
+	height: 20vh;
+	width: 20vh;
+	position: absolute;
+	top: 20vh; 
 }
 
 .back-button {
@@ -85,20 +54,74 @@ ol li {
 	top: 3vh;
 }
 
-#fm-continue-button {
-	width: 11vw; 
-	max-width: 9vh; 
-	max-height: 9vh; 
+.profileTitle {
 	position: absolute;
-	right: 3vw;
-	top: 3vh;
+	font-size: 4vh;
+	top: 6.5%;
+	left: 40%;
+	transform: translate(-25%, -50%);
 }
 
-#rh-continue-button {
-	width: 11vw; 
-	max-width: 9vh; 
-	max-height: 9vh; 
+.username{
 	position: absolute;
-	right: 3vw;
-	top: 3vh;
+	float: right;
+  	top: 41vh;
+	font-size: 7vw;
+  	color: #D3A9AC;
+  	margin-left: auto;
+	margin-right: auto;
+	left: 34%;
+}
+
+.functions{
+	position:absolute;
+	top: 49vh;
+}
+
+.notes-right {
+	position: relative;
+	float: right;
+  	top: 50%;
+  	margin-right: 3vw;
+  	transform: translateY(-50%);
+  	color: #D3A9AC;
+}
+
+.rightarrow {
+	width: 5vh;
+	height: 5vh;
+	display: block;
+	position: relative;
+	float: right;
+  	top: 50%;
+  	margin-right: 1vw;
+  	transform: translateY(-50%);
+}
+
+.notes {
+	vertical-align: middle;
+	position: relative;
+	margin-left: 2vw;
+	color: #E3E3E3;
+}
+
+.logoutbar {
+	position:absolute;
+	bottom:0;
+	border: 1px black solid;
+	background-color: #D3A9AC; 
+	font-size: 7vw;
+	text-align: center;
+	height: 7vh;
+	width: 100vw;
+	color: #1F3139; 
+}
+
+.logout {
+	vertical-align: middle;
+	position: relative;
+	text-align: center;
+	color: #1F3139;
+	margin-top: auto;
+	margin-bottom: auto;
 }

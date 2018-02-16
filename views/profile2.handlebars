@@ -7,20 +7,23 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Settings</title>
-
+    <title>Profile</title>
+    
     <script src="js/jquery-1.11.0.js"></script>
+
     <!-- Bootstrap core CSS -->
+
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/css/general.css" rel="stylesheet">
-    <link href="/css/settings.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
     <link href="/css/profile.css" rel="stylesheet">
+    <link href="/css/settings.css" rel="stylesheet">
 
   </head>
-  <body>
 
+  <body>
 
     <main role="main">
         <div class="headbar">
@@ -37,43 +40,32 @@
             </a> 
         </div>
 
-         <div>
+        <div>
             <img src="/images/SampleProfilePhoto.png" class="profile-photo">
         </div>
 
-        <div class="username">{{name}}</div>
-
-        <div class="functions">
             <div class="infobars">
-                <span class="notes">Username</span>
-                <div class="notes-right">{{name}}</div>
-            </div>
+                <div class="notes">Username 
+                    <div class="notes-routine-right">{{name}}</div>
+                </div>
+                <div class="infobars">Phone Number
+                    <div class="notes-routine-right">{{phone}}</div>
+                </div>
 
-            <div class="infobars">
-                <span class="notes">Phone</span>
-                <div class="notes-right">{{phone}}</div>
-            </div>
+                <div class="padding"></div>
 
-            <div class="padding"></div>
+                <div class="infobars">Family Members
+                    <a href="#"><img src="images/rightarrow.png" class=".rightarrow"></a>
+                </div>
+
+                <div class="padding"></div>
+
+                <div class="infobars">Recording History
+                    <a href="result-history" class="infobars">
+                        <img src="images/rightarrow.png" class=".rightarrow"></a>
+                </div>
+            </div>
             
-            <div class="infobars">
-                <span class="notes">Family Members</span>
-                <a href="#"><img src="images/rightarrow.png" class="rightarrow"></a>
-            </div>
-
-            <div class="padding"></div>
-            
-            <div class="infobars">
-                <span class="notes">Recording History</span>
-                <a href="result-history">
-                <img src="images/rightarrow.png" class="rightarrow"></a>
-            </div>
-        </div>
-
-        <div class="logoutbar">
-                <a href="/" class="logout">Log Out</a>
-        </div>
-
     </main><!-- /.container -->
 
     <!-- Bootstrap core JavaScript
