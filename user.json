@@ -25,7 +25,10 @@
 		},
 
 		{
-			"routine": "6PM"
+			"routine": [
+				{"time": "06:00 PM"},
+				{"repeat": "daily"}
+			]
 		}
 	]
 }

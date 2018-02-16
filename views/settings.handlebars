@@ -38,7 +38,7 @@
         </div>
 
         <div class="routine-bar">
-            <span class="notes">ROUTINE</span>
+            <span class="notes">{{routine.[0].time}}</span>
             <span>
                 <a href="#" id="routine-button">
                     <img src="/images/switchoff.png" class="switch-button img-responsive" align="right">
@@ -47,21 +47,16 @@
         </div>
 
         <div class="routines">
-            <div class="notes-routine-left">START <br> END <br> REPEAT<br></div>
-            <div class="notes-routine-right">00:00 PM<br> 00:00 PM<br> DAILY<br></div>
-            <div>
-                <a href="settings-routine">
-                    <img src="/images/rightarrow.png"  class="right-arrow">
-                </a>
-            </div>
+            <div class="notes-routine-left"> REPEAT<br></div>
+            <div class="notes-routine-right">{{routine.[1].repeat}} <br></div>
         </div>
 
         <div class="plus">
-            <span>
-                <a href="/" id="plus-button">
+            <div>
+                <a href="settings-routine" id="plus-button">
                     <img src="/images/plusicon.png" class="img-responsive" align="bottom">
                 </a>
-            </span>
+            </div>
         </div>
         
     </main><!-- /.container -->
