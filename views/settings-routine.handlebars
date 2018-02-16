@@ -9,7 +9,7 @@
 
     <title>Set Routine</title>
     
-    <script src="js/jquery-1.11.0.js"></script>
+    <script src="/js/jquery-1.11.0.js"></script>
 
     <!-- Bootstrap core CSS -->
 
@@ -18,15 +18,16 @@
     <!-- Custom styles for this template -->
     <link href="/css/general.css" rel="stylesheet">
     <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/settings-routine.css" rel="stylesheet">
 
   </head>
 
   <body class="main-screen">
 
-
     <main role="main" class="container">
+
         <div class="headbar">
-           <a href="settings">            
+           <a href="index">            
                 <img src="/images/leftarrow.png" class="back-button img-responsive">
             </a>
 
@@ -34,6 +35,41 @@
                 <img src="/images/homeicon.png" class="home-button img-responsive">
             </a> 
         </div>
+
+    <!-- Bootstrap stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+ 
+    <!-- ClockPicker Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-clockpicker.min.css">
+ 
+    <!-- Input group, just add class 'clockpicker', and optional data-* -->
+    <div class="input-group clockpicker clock" data-placement="bottom" data-align="top" data-autoclose="true">
+        <input type="text" class="form-control" value="09:32">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-time"></span>
+        </span>
+    </div>
+
+    <!-- jQuery and Bootstrap scripts -->
+    <script type="text/javascript" src="/js/jquery-clockpicker.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+     
+    <!-- ClockPicker script -->
+    <script type="text/javascript" src="/js/bootstrap-clockpicker.min.js"></script>
+    <script type="text/javascript">
+    $('.clockpicker').clockpicker()
+        .find('input').change(function(){
+            // TODO: time changed 
+            console.log(this.value);
+        });
+    $('#demo-input').clockpicker({
+        autoclose: true
+    });
+</script>
+
+
+
+
     </main><!-- /.container -->
 
     <!-- Bootstrap core JavaScript
@@ -42,6 +78,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (blelow), or include individual files as needed -->
+
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
