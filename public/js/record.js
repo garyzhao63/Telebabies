@@ -21,8 +21,8 @@ function initializePage() {
     	console.log(error);
 	});
 	setTimeout(
-	function () {startRecording(token1); }, 1000); 
-	setInterval(function() {startTone(); }, 1000 ); 
+	function () {startRecording(token1); }, 1500); 
+	setInterval(function() {startTone(); }, 1500 ); 
 }
 
 function startRecording(token) {
