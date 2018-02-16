@@ -32,9 +32,8 @@ ol li {
 	background-color: #255D6E; 
 	font-size: 7vw;
 	list-style-type: none;
-
-
 }
+
 .title {
 	position: absolute;
 	font-size: 4vw; 
@@ -62,6 +61,24 @@ ol li {
 }
 
 .home-button {
+	width: 11vw; 
+	max-width: 9vh; 
+	max-height: 9vh; 
+	position: absolute;
+	right: 3vw;
+	top: 3vh;
+}
+
+#fm-continue-button {
+	width: 11vw; 
+	max-width: 9vh; 
+	max-height: 9vh; 
+	position: absolute;
+	right: 3vw;
+	top: 3vh;
+}
+
+#rh-continue-button {
 	width: 11vw; 
 	max-width: 9vh; 
 	max-height: 9vh; 
