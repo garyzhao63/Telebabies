@@ -10,6 +10,9 @@
     <title>Recording...</title>
     
     <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/fetch.js"></script>
+    <script src="js/watson-speech.js"></script>
+    <script src="js/record.js"></script>
 
     <!-- Bootstrap core CSS -->
 
@@ -17,16 +20,26 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/general.css" rel="stylesheet">
-    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/record.css" rel="stylesheet">
 
   </head>
 
   <body class="main-screen">
 
 
-    <main role="main" class="container">
-        <a href="result" style="color: white; font-size: 8em">Check result</a>
-        <video autoplay></video>
+    <main role="main">
+        <div class="notes">RECORDING</div>
+        <div class="text-panel">
+            <div class="text-trans">Siyuan: iauwehfiauewh iaouwe iauew fliauwefn liauwen liauwefn liawefn ilaeuwfn liauewfn laiuewfn liaweufn alwiefn ilawefbailewuf laiewfn ilaewfn liauewbf iulawebf liawufb lawiebf </div>
+            <div class="text-trans" id="toBeAdded"></div>
+
+        </div>
+        <a href="#">
+            <img class="pause-btn img-responsive" src="images/PauseButton.png">
+        </a>
+        <a href="#">
+            <img class="stop-btn img-responsive" src="images/StopButton.png">
+        </a>
 
     </main><!-- /.container -->
 
