@@ -2,10 +2,10 @@
 	"rickord123": [
 		{
 			"info": [
-				{"name": "Rick Ord"},
-				{"username": "rickord123"},
-				{"password": "123456"},				
-				{"phone": "6191234567"}
+				{"name": "Rick Ord",
+				 "username": "rickord123",
+				 "password": "123456",				
+				 "phone": "6191234567"}
 			]
 		},
 

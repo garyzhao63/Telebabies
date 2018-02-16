@@ -19,6 +19,7 @@
     <link href="/css/general.css" rel="stylesheet">
     <link href="/css/index.css" rel="stylesheet">
     <link href="/css/profile.css" rel="stylesheet">
+    <link href="/css/settings.css" rel="stylesheet">
 
   </head>
 
@@ -38,13 +39,25 @@
         </div>
             	<img src="/images/SampleProfilePhoto.png" class="profile-photo"> 
             <div id="information">
-            	<ol class="notes">
-            		<li>Username</li>
-            		<li>Phone Number</li>
-            		<li>Family Members<img src="images/rightarrow.png" id="fm-continue-button img-responsive"></a></li>
-            		<li><a href="result-history" style="color: white">Recording History
-            		<img src="images/rightarrow.png" id="rh-continue-button img-responsive"></a></li>
-            	</ol>
+            	<div class="infobars">Username 
+                    <div class="notes-routine-right">{{name}}</div>
+                </div>
+            	<div class="infobars">Phone Number
+                    <div class="notes-routine-right">{{phone}}</div>
+                </div>
+
+                <div class="padding"></div>
+
+            	<div class="infobars">Family Members
+                    <a href="#"><img src="images/rightarrow.png" class=".rightarrow"></a>
+                </div>
+
+                <div class="padding"></div>
+
+            	<div class="infobars">Recording History
+                    <a href="result-history" class="infobars">
+                        <img src="images/rightarrow.png" class=".rightarrow"></a>
+                </div>
             </div>
             
     </main><!-- /.container -->

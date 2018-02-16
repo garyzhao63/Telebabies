@@ -34,6 +34,22 @@ ol li {
 	list-style-type: none;
 }
 
+.infobars {
+	bottom;
+	border: 1px black solid;
+	text-indent: 3vw;
+	background-color: #255D6E; 
+	font-size: 7vw;
+	height: 7vh;
+	width: 100vw;
+}
+
+.padding {
+	background-color: transparent;
+	height: 7vh;
+	width: 100vw;
+}
+
 .title {
 	position: absolute;
 	font-size: 4vw; 

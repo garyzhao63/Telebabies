@@ -21,13 +21,11 @@ var result2 = require('./routes/result2');
 var resulthistory = require('./routes/result-history'); 
 
 var watson = require('watson-developer-cloud');
-var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
-
 
 // Example route
 // var user = require('./routes/user');
 
-var sttAuthService1 = new watson.AuthorizationV1(
+var sttAuthService = new watson.AuthorizationV1(
   Object.assign(
     {
       username: "377a73cd-72b3-4072-a03f-a06fba891995", 
@@ -36,12 +34,6 @@ var sttAuthService1 = new watson.AuthorizationV1(
     vcapServices.getCredentials('speech_to_text') // pulls credentials from environment in bluemix, otherwise returns {}
   )
 );
-
-var toneAnalyzer = new ToneAnalyzerV3({
-  username: "94ebc458-8622-4774-bea4-ebd897e43eb0", 
-  password: "cyt76COBKvEo", 
-  version_date: '2017-09-21'
-});
 
 var app = express();
 
@@ -61,7 +53,7 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/speech-to-text/token', function(req, res) {
-  sttAuthService1.getToken(
+  sttAuthService.getToken(
     {
       url: watson.SpeechToTextV1.URL
     },
@@ -71,6 +63,7 @@ app.use('/api/speech-to-text/token', function(req, res) {
         res.status(500).send('Error retrieving token');
         return;
       }
+			console.log('app.js: ' + token); 
       res.send(token);
     }
   );
@@ -92,16 +85,6 @@ app.get('/result2', result2.view);
 app.get('/result-history', resulthistory.view); 
 // Example route
 // app.get('/users', user.list);
-
-app.post('/api/tone', function(req, res, next) {
-  toneAnalyzer.tone(req.body, function(err, data) {
-    if (err) {
-      return next(err);
-    }
-    return res.json(data);
-  });
-});
-
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
