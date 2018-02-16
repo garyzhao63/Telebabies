@@ -2,7 +2,9 @@
 /*
  * GET settings page.
  */
+var data = require('../user.json');
 
 exports.view = function(req, res) {
-	res.render('result-history'); 
+	console.log(data);
+	res.render('result-history', data); 
 }

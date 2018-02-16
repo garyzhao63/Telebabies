@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Record History</title>
+    <title>Main Screen</title>
     
     <script src="js/jquery-1.11.0.js"></script>
 
@@ -18,38 +18,34 @@
     <!-- Custom styles for this template -->
     <link href="/css/general.css" rel="stylesheet">
     <link href="/css/index.css" rel="stylesheet">
-    <link href="/css/result-history.css" rel="stylesheet">
+    <link href="/css/login.css" rel="stylesheet">
+</head>
 
   </head>
 
-  <body class="main-screen">
+  <body class="main-screen container notes">
 
+  <main role="main">
 
-    <main role="main" class="container">
-        <div class="headbar">
-           <a href="profile">            
-                <img src="/images/leftarrow.png" class="back-button img-responsive">
-            </a>
+  	<div class="username">
+    	<b>Username: </b>
+    	<p> </p>
+    	<input type="text" name="username" required>
+	</div>
 
-            <div class="set-alert img-responsive">
-                <span class="notes">RECORDING HISTORY</span>
-            </div>
+    <div class="password">
+    	<b>Password: </b>
+    	<p> </p>
+    	<input type="password" name="password" required>
+	</div>
 
-            <a href="/">            
-                <img src="/images/homeicon.png" class="home-button img-responsive">
-            </a> 
-        </div>
+	<div class="login-button">
+    <a href="index">
+    	<img src="/images/login_button.png" href="#" class="img-responsive">
+	</a>
+	</div>
 
-        <div class="recordings">
-            <ol class="notes">
-                <li> 12/02/2018 </li>
-            </ol>
-        </div>
-
-        <!--a href="result2" style="color: white; font-size: 8em">View</a-->
-
-
-    </main><!-- /.container -->
+    </main><!-- /.container --></body>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
