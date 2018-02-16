@@ -19,6 +19,16 @@
 	transform: translate(-50%, -50%);
 }
 
+.notes2 {
+	position: absolute;
+	font-size: 3vw; 
+	color: #E3E3E3; 
+	left: 50%;
+	top: 15vh; 
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
+}
+
 .setting-button {
 	width: 13vw; 
 	max-width: 13vh; 
