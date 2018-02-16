@@ -42,7 +42,9 @@
 
         <div class="recordings">
             <ol class="notes">
-                <li> 12/02/2018 </li>
+                {{#each recording}}
+                <li> {{date}} </li>
+                {{/each}}
             </ol>
         </div>
 
