@@ -16,6 +16,7 @@
     "express3-handlebars": "*",
     "mongodb": "*",
     "mongoose": "*",
+    "twilio": "^3.11.3",
     "vcap_services": "^0.3.4",
     "watson-developer-cloud": "^3.0.6",
     "watson-speech": "^0.34.1"
