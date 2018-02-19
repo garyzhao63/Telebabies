@@ -1,10 +1,15 @@
-var accountSid = 'ACc76f6e2d5908a1224753cc5d6b170d95'; // Your Account SID from www.twilio.com/console
-var authToken = 'fd1ad3d198e851aeae21a1f83ea8ebe1';   // Your Auth Token from www.twilio.com/console
+var credential = require('./credential.json')
+
+var accountSid = credential.accountSid; // Your Account SID from www.twilio.com/console
+var authToken = credential.authToken;   // Your Auth Token from www.twilio.com/console
+
+console.log(accountSid);
 
 var twilio = require('twilio');
 var client = new twilio(accountSid, authToken);
 
 var data = require('./user.json');
+
 
 client.messages.create({
     body: 'Alert from Telebabies: ' + data.rickord123[3].routine[0].time,
