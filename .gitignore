@@ -12,6 +12,8 @@ pids
 logs
 results
 
+credential.json
+
 npm-debug.log
 
 .DS_Store
