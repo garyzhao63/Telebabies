@@ -1,5 +1,22 @@
 'use strict';
 
+var count = 0; 
+
+var mood = {
+	'anger': 'red', 
+	'analytical': 'blue', 
+	'confident': 'purple', 
+	'fear': 'green', 
+	'tentative': 'cyan', 
+	'joy': 'orange', 
+	'not detected': 'transparent'
+};
+
+var curTone = {
+	tone: 'not detected', 
+	score: 0
+}; 
+
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
@@ -22,68 +39,92 @@ function initializePage() {
 	});
 	setTimeout(
 	function () {startRecording(token1); }, 2000); 
-	setInterval(function() {startTone(); }, 2000 ); 
 }
 
 function startRecording(token) {
-	var stream = WatsonSpeech.SpeechToText.recognizeMicrophone({
-        token: token,
-        outputElement: '#toBeAdded' // CSS selector or DOM Element
-    });
-		console.log(stream); 
 
-    stream.on('error', function(err) {
-        console.log(err);
-    });
+	var stream =
+	WatsonSpeech.SpeechToText.recognizeMicrophone(getRecognizeOptions(token));
 
-    document.querySelector('.stop-btn').onclick = function() {
-      stream.stop();
-    };
+  stream.on('error', function(err) {
+      console.log(err);
+  }).on('data', handleMsg);
+
+  document.querySelector('.stop-btn').onclick = function() {
+    stream.stop();
+  };
 }
 
 function getToneAnalysis(text) {
-	$.post('/api/tone', {'text': text,'language': 'en'},
+	$.post('/api/tone', {'tone_input': text,'content_type': 'text/plain'},
 	toneCallback).fail(function() {console.log('fail')});
 }
-function startTone() {
-	var text = $('#toBeAdded').html(); 
-	console.log(text); 
-	if (text != '') {
-		getToneAnalysis(text); 
-	}
+
+function toneCallback(result) {
+	var data = result.data; 
+	var text = result.content['tone_input']; 
+
+	var item = data.document_tone.tones; 
+	curTone.score = 0; 
+	curTone.tone = 'not detected'; 
+	if (item.length != 0) {
+		for (var i = 0; i < item.length; i++) {
+			if (item[i].score >= curTone.score) {
+				curTone.score = item[i].score; 
+				curTone.tone = item[i].tone_id; 
+			}
+		}
+		$('.notes2').html('Current mood: ' + curTone.tone); 
+		$('#text' + count).css('background-color', mood[curTone.tone]);
+	} 
+
 }
 
-function toneCallback(data) {
-	console.log(data); 
-	var text = $('#toBeAdded').html(),  
-	emotionTone = data.document_tone.tones.slice(0),
-  sentences, sentenceTone = []
-
-	if (typeof(data.sentences_tone) === 'undefined' || data.sentences_tone === null) {
-      sentences = [{
-        sentence_id: 0, // eslint-disable-line camelcase
-        text: text,
-        tones: data.document_tone.tones.slice(0)
-      }];
-  } else {
-      //Deep copy data.sentences_tone
-      sentences = JSON.parse(JSON.stringify(data.sentences_tone));
-  }
-	/*
-	sentences.forEach(function(elements) {
-      elements.tones.forEach(function(item) {
-        if (sentenceTone[item.tone_id] == null || sentenceTone[item.tone_id].score < item.score) {
-          sentenceTone[item.tone_id] = item;
-        }
-      });
-
+function getRecognizeOptions(token) {
+    return Object.assign({
+      // formats phone numbers, currency, etc. (server-side)
+      smart_formatting: true,
+      format: true, // adds capitals, periods, and a few other things (client-side)
+			model: 'en-US_BroadbandModel', 
+      objectMode: true,
+      interim_results: true,
+      // note: in normal usage, you'd probably set this a bit higher
+      word_alternatives_threshold: 0.01,
+      timestamps: true, // set timestamps for each word - automatically turned on by speaker_labels
+      // includes the speaker_labels in separate objects unless resultsBySpeaker is enabled
+      speaker_labels: true,
+      // combines speaker_labels and results together into single objects,
+      // making for easier transcript outputting
+      resultsBySpeaker: true,
+      // allow interim results through before the speaker has been determined
+      speakerlessInterim: true,
+			token: token 
     });
-		*/
-	var item = sentences.slice(-1)[0].tones.slice(-1)[0]; 
-	if (item != undefined) {
-		console.log(item.tone_id); 
-		$('.notes2').html('current mood: ' + item.tone_id); 
-	} else {
-		$('.notes2').html('current mood: not detected'); 
+}
+
+function handleMsg(msg) {
+	var r = msg.results; 
+	var text; 
+	var sentence; 
+	count = r.length - 1; 
+
+	text = r[count].alternatives[0].transcript; 
+	text = text.slice(0, -1);
+
+	if (text != '') {
+		getToneAnalysis(text); 
+		if (r[count].speaker != undefined) {
+			sentence = 'Speaker' + r[count].speaker + ': ' + text + '.'; 
+		} else {
+			sentence = text + '.'; 
+		}
+		if (!$('#text' + count).length) {
+			$('.text-panel').append('<div class="text-trans" id="text' + count + 
+				'">' + sentence + '</div>'); 
+		} else {
+			$('#text' + count).html(sentence); 	
+		}
+		$('#text' + count).css('background-color', mood[curTone.tone]);
+		$(".text-panel").scrollTop($(".text-panel")[0].scrollHeight);
 	}
 }

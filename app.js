@@ -94,11 +94,17 @@ app.get('/result-history', resulthistory.view);
 // app.get('/users', user.list);
 
 app.post('/api/tone', function(req, res, next) {
+	console.log(req.body); 
   toneAnalyzer.tone(req.body, function(err, data) {
     if (err) {
       return next(err);
     }
-    return res.json(data);
+    return res.json(
+		Object.assign({
+			'data': data, 
+			'content': req.body
+		})
+		);
   });
 });
 
