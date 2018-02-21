@@ -30,6 +30,7 @@ function startRecording(token) {
         token: token,
         outputElement: '#toBeAdded' // CSS selector or DOM Element
     });
+		console.log(stream); 
 
     stream.on('error', function(err) {
         console.log(err);
