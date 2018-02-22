@@ -9,6 +9,7 @@ var path = require('path');
 var handlebars = require('express3-handlebars')
 var vcapServices = require('vcap_services');
 
+const fs = require('fs'); 
 
 var login = require('./routes/login');
 var index = require('./routes/index');
@@ -17,7 +18,6 @@ var settingsroutine = require('./routes/settings-routine');
 var profile = require('./routes/profile');
 var record = require('./routes/record'); 
 var result = require('./routes/result'); 
-var result2 = require('./routes/result2'); 
 var resulthistory = require('./routes/result-history'); 
 
 var watson = require('watson-developer-cloud');
@@ -88,13 +88,12 @@ app.get('/settings-routine', settingsroutine.view);
 app.get('/profile', profile.view); 
 app.get('/record', record.view); 
 app.get('/result', result.view); 
-app.get('/result2', result2.view); 
+app.get('/result2', result.view2); 
 app.get('/result-history', resulthistory.view); 
 // Example route
 // app.get('/users', user.list);
 
 app.post('/api/tone', function(req, res, next) {
-	console.log(req.body); 
   toneAnalyzer.tone(req.body, function(err, data) {
     if (err) {
       return next(err);
@@ -108,6 +107,19 @@ app.post('/api/tone', function(req, res, next) {
   });
 });
 
+app.post('/wResult', function(req, res, next) {
+	let data = JSON.stringify(req.body);  
+	fs.writeFileSync('./result.json', data);  
+}); 
+
+app.post('/rResult', function(req, res, next) {
+	fs.readFile('./result.json', function read(err, data) {
+			if (err) {
+					throw err;
+			}
+			res.send(data); 
+	});
+}); 
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

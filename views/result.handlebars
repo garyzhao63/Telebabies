@@ -10,6 +10,7 @@
     <title>Result</title>
     
     <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/result.js"></script>
 
     <!-- Bootstrap core CSS -->
 
@@ -17,16 +18,16 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/general.css" rel="stylesheet">
-    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/result.css" rel="stylesheet">
 
   </head>
 
   <body class="main-screen">
 
 
-    <main role="main" class="container">
+    <main role="main">
         <div class="headbar">
-           <a href="index">            
+           <a href={{link}}>            
                 <img src="/images/leftarrow.png" class="back-button img-responsive">
             </a>
 
@@ -34,6 +35,15 @@
                 <img src="/images/homeicon.png" class="home-button img-responsive">
             </a> 
         </div>
+        <div class="notes">RESULT</div>
+        <div class="text-panel">
+            {{#each text}}
+                <div class="text-trans" style={{style}}>{{content}}</div>
+            {{/each}}
+        </div>
+
+
+
     </main><!-- /.container -->
 
     <!-- Bootstrap core JavaScript

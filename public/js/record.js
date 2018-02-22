@@ -2,6 +2,10 @@
 
 var count = 0; 
 
+var resultJSON = {}; 
+resultJSON.date = Date.now(); 
+resultJSON.text = []; 
+
 var mood = {
 	'anger': 'red', 
 	'analytical': 'blue', 
@@ -16,6 +20,8 @@ var curTone = {
 	tone: 'not detected', 
 	score: 0
 }; 
+
+var docStream;
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -49,9 +55,10 @@ function startRecording(token) {
   stream.on('error', function(err) {
       console.log(err);
   }).on('data', handleMsg);
-
+	docStream = stream; 
   document.querySelector('.stop-btn').onclick = function() {
     stream.stop();
+		$.post('wResult', resultJSON); 
   };
 }
 
@@ -74,10 +81,8 @@ function toneCallback(result) {
 				curTone.tone = item[i].tone_id; 
 			}
 		}
-		$('.notes2').html('Current mood: ' + curTone.tone); 
-		$('#text' + count).css('background-color', mood[curTone.tone]);
 	} 
-
+	$('.notes2').html('Current mood: ' + curTone.tone); 
 }
 
 function getRecognizeOptions(token) {
@@ -124,6 +129,11 @@ function handleMsg(msg) {
 		} else {
 			$('#text' + count).html(sentence); 	
 		}
+		if (!resultJSON.text[count]) {
+			resultJSON.text[count] = {}; 
+		}
+		resultJSON.text[count].content = sentence; 
+		resultJSON.text[count].style = mood[curTone.tone]; 
 		$('#text' + count).css('background-color', mood[curTone.tone]);
 		$(".text-panel").scrollTop($(".text-panel")[0].scrollHeight);
 	}

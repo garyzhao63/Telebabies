@@ -1,0 +1,27 @@
+.text-panel {
+	position: absolute; 
+	background-color: #5A707E; 
+	width: 100vw; 
+	height: 80vh; 
+	top: 13%; 
+	font-size: 5vw; 
+	overflow: scroll; 
+}
+
+.text-trans {
+	color: #E3E3E3; 
+	margin-left: 4vw; 
+	margin-right: 4vw; 
+	margin-top: 2vh; 
+	margin-bottom: 2vh; 
+}
+
+.notes {
+	position: absolute;
+	font-size: 9vw; 
+	color: #E3E3E3; 
+	left: 50%;
+	top: 7vh; 
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
+}
