@@ -112,7 +112,7 @@ app.post('/wResult', function(req, res, next) {
 	fs.writeFileSync('./result.json', data);  
 }); 
 
-app.post('/rResult', function(req, res, next) {
+app.get('/rResult', function(req, res, next) {
 	fs.readFile('./result.json', function read(err, data) {
 			if (err) {
 					throw err;
@@ -120,6 +120,24 @@ app.post('/rResult', function(req, res, next) {
 			res.send(data); 
 	});
 }); 
+
+/***************** settings ***********/
+
+app.post('/wSetting', function(req, res, next) {
+  let data = JSON.stringify(req.body);  
+  fs.writeFileSync('./user.json', data);  
+}); 
+
+app.get('/rSetting', function(req, res, next) {
+  fs.readFile('./user.json', function read(err, data) {
+      if (err) {
+          throw err;
+      }
+      res.send(data); 
+  });
+}); 
+
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
