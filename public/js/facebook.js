@@ -20,11 +20,12 @@ function statusChangeCallback(response) {
 }
 
 function changeUser(response) {
-  var data = JSON.parse($.ajax({type: "GET", url: "rSetting", async: false}).responseText);
+  /*var data = JSON.parse($.ajax({type: "GET", url: "rSetting", async: false}).responseText);
   var curJSON = data.rickord123[0].info[0];
-  console.log(curJSON.picture);
 
   curJSON.name = response.name;
   curJSON.picture = response.picture.data.url;
-  $.post('wSetting', data); 
+
+  console.log(response.name);
+  $.post('wSetting', data); */
 }
