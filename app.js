@@ -112,7 +112,7 @@ app.post('/wResult', function(req, res, next) {
 	fs.writeFileSync('./result.json', data);  
 }); 
 
-app.get('/rResult', function(req, res, next) {
+app.post('/rResult', function(req, res, next) {
 	fs.readFile('./result.json', function read(err, data) {
 			if (err) {
 					throw err;
@@ -136,6 +136,8 @@ app.get('/rSetting', function(req, res, next) {
       res.send(data); 
   });
 }); 
+
+
 
 
 
