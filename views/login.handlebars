@@ -45,6 +45,12 @@
 	</a>
 	</div>
 
+    <div class="facebookLogin">
+
+        <fb:login-button scope="public_profile,email" href="#"  onlogin="checkLoginState();"></fb:login-button>
+
+    </p>
+
     </main><!-- /.container --></body>
 
     <!-- Bootstrap core JavaScript
@@ -54,5 +60,7 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (blelow), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    {{> facebook}}
+    <script src="/js/facebook.js"></script>
   </body>
 </html>

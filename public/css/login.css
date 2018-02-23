@@ -23,9 +23,19 @@
 	width: 70vw;
 	position: absolute;
 	top: 35vh; 
-	left: 50%;
 	margin-right: -50%; 
 	transform: translate(-50%, -50%);
 	left: 50%;
+    font-size: 3vh;
+}
+
+.facebookLogin {
+	margin-top: 10vw;
+	width: 70vw;
+	position: absolute;
+	top: 50vh; 
+	left: 65%;
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
     font-size: 3vh;
 }
