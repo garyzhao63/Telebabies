@@ -3,8 +3,6 @@ var credential = require('./credential.json')
 var accountSid = credential.accountSid; // Your Account SID from www.twilio.com/console
 var authToken = credential.authToken;   // Your Auth Token from www.twilio.com/console
 
-console.log(accountSid);
-
 var twilio = require('twilio');
 var client = new twilio(accountSid, authToken);
 
