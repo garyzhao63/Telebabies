@@ -1,5 +1,6 @@
 'use strict';
 
+
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
@@ -10,17 +11,51 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
-	$("#routine-button").click(switchClick);
+	$(".switch-button").click(switchClick);
+	$(".notes-routine-right").click(repeatClick);
 
 }
 
 function switchClick(e) {
 	e.preventDefault();
-	if ($(".switch-button").attr('src') == '/images/switchoff.png') {
-		$(".switch-button").attr("src","/images/switchon.png");
-		$(".routines").show(); 
+
+	var ID = $(this).closest(".routine-bar").attr('id');
+	var btnQuery = '#' + ID + ' ' + '.switch-button';
+	var rtnQuery = '#' + ID + '.routines';
+
+	if ($(btnQuery).attr('src') == '/images/switchoff.png') {
+		$(btnQuery).attr("src","/images/switchon.png");
+		$(rtnQuery).show(); 
 	} else {
-		$(".switch-button").attr("src","/images/switchoff.png");
-		$(".routines").hide(); 
+		$(btnQuery).attr("src","/images/switchoff.png");
+		$(rtnQuery).hide(); 
 	}
+}
+
+function repeatClick(e) {
+
+	var ID = $(this).closest(".routines").attr('id');
+	var data = JSON.parse($.ajax({type: "GET", url: "rSetting", async: false}).responseText);
+	var curJSON = data.rickord123[3].routine[ID];
+
+	e.preventDefault();
+
+	var curRepeat = $(this).html();
+
+	if(curRepeat == "daily<br>") {
+		$(this).html("weekly<br>");
+		curJSON.repeat = "weekly";
+		$.post('wSetting', data); 
+	} 
+	else if (curRepeat == "weekly<br>") {
+		$(this).html("monthly<br>");
+		curJSON.repeat = "monthly";
+		$.post('wSetting', data); 
+	} 
+	else {
+		$(this).html("daily<br>");
+		curJSON.repeat = "daily";
+		$.post('wSetting', data); 
+	}
+
 }

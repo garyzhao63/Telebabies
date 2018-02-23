@@ -41,7 +41,7 @@
 
         {{#each routine}}
 
-        <div class="routine-bar" id={{time}}>
+        <div class="routine-bar" id={{id}}>
             <span class="notes">{{time}}</span>
             <span>
                 <a href="#" id="routine-button">
@@ -50,9 +50,9 @@
             </span>
         </div>
 
-        <div class="routines">
+        <div class="routines" id={{id}}>
             <div class="notes-routine-left"> REPEAT<br></div>
-            <div class="notes-routine-right">{{repeat}} <br></div>
+            <div class="notes-routine-right">{{repeat}}<br></div>
         </div>
 
         {{/each}}
