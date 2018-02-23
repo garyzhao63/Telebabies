@@ -16,7 +16,7 @@
 	position: relative;
 	float: left; 
   	top: 50%;
-  	transform: translateY(-50%);
+  	transform: translateY(-52%);
 	margin-left: 4vw;
 	color: #E3E3E3;
 }
@@ -26,7 +26,7 @@
 	float: right;
   	top: 50%;
   	left: 15%;
-  	transform: translateY(-50%);
+  	transform: translateY(-52%);
   	color: #D3A9AC;
 }
 
@@ -37,8 +37,6 @@
 }
 
 .routine-bar {
-
-
 
 	background-color: #255D6E; 
 	height: 6vh;

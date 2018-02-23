@@ -1,3 +1,20 @@
 .clock {
 	top: 20vh;
 }
+
+.inputbar {
+	background-color: transparent;
+	border: none;
+	text-align: right;
+	position: relative;
+	float: right;
+	transform: translateY(-5%);
+	margin-right: 5vw;
+	color: #D3A9A7;
+}
+
+.padding {
+	background-color: transparent;
+	height: 5vh;
+	width: 100vw;
+}
