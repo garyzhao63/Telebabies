@@ -6,6 +6,8 @@ var resultJSON = {};
 resultJSON.date = Date.now(); 
 resultJSON.text = []; 
 
+var user = 'rickord123'; 
+
 var mood = {
 	'anger': 'red', 
 	'analytical': 'blue', 
