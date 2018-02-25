@@ -35,8 +35,9 @@ function switchClick(e) {
 function repeatClick(e) {
 
 	var ID = $(this).closest(".routines").attr('id');
-	var data = JSON.parse($.ajax({type: "GET", url: "rSetting", async: false}).responseText);
-	var curJSON = data.rickord123[3].routine[ID];
+	var data = JSON.parse($.ajax({type: "GET", url: "rUser", async: false}).responseText);
+	
+	var curJSON = data.routine[ID];
 
 	e.preventDefault();
 
@@ -45,17 +46,17 @@ function repeatClick(e) {
 	if(curRepeat == "daily<br>") {
 		$(this).html("weekly<br>");
 		curJSON.repeat = "weekly";
-		$.post('wSetting', data); 
+		$.post('wUser', data); 
 	} 
 	else if (curRepeat == "weekly<br>") {
 		$(this).html("monthly<br>");
 		curJSON.repeat = "monthly";
-		$.post('wSetting', data); 
+		$.post('wUser', data); 
 	} 
 	else {
 		$(this).html("daily<br>");
 		curJSON.repeat = "daily";
-		$.post('wSetting', data); 
+		$.post('wUser', data); 
 	}
 
 }
