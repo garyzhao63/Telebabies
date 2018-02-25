@@ -121,14 +121,14 @@ app.post('/rResult', function(req, res, next) {
 	});
 }); 
 
-/***************** settings ***********/
+/***************** user ***********/
 
-app.post('/wSetting', function(req, res, next) {
+app.post('/wUser', function(req, res, next) {
   let data = JSON.stringify(req.body);  
   fs.writeFileSync('./user.json', data);  
 }); 
 
-app.get('/rSetting', function(req, res, next) {
+app.get('/rUser', function(req, res, next) {
   fs.readFile('./user.json', function read(err, data) {
       if (err) {
           throw err;
@@ -136,6 +136,16 @@ app.get('/rSetting', function(req, res, next) {
       res.send(data); 
   });
 }); 
+
+/***************** user list ***********/
+app.get('/rList', function(req, res, next) {
+  fs.readFile('./user_list.json', function read(err, data) {
+      if (err) {
+          throw err;
+      }
+      res.send(data); 
+  });
+});
 
 
 
