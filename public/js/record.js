@@ -6,6 +6,7 @@ var resultJSON = {};
 resultJSON.date = Date.now(); 
 resultJSON.user = user; 
 resultJSON.text = ''; 
+resultJSON.time = ''; 
 
 
 var mood = {
@@ -47,6 +48,12 @@ function initializePage() {
 	});
 	setTimeout(
 	function () {startRecording(token); }, 2000); 
+	timeStart(); 
+	setInterval(function() {
+		var time = elapsedTimeConvert(timeEnd()); 
+		$('.time').html(time); 
+		resultJSON.time = time; 
+	}, 1000);
 }
 
 function startRecording(token) {
