@@ -1,12 +1,12 @@
 'use strict';
 
-var count = 0; 
+var user = 'rickord123'; 
 
 var resultJSON = {}; 
 resultJSON.date = Date.now(); 
-resultJSON.text = []; 
+resultJSON.user = user; 
+resultJSON.text = ''; 
 
-var user = 'rickord123'; 
 
 var mood = {
 	'anger': 'red', 
@@ -36,17 +36,17 @@ $(document).ready(function() {
 function initializePage() {
 	console.log("Javascript connected!");
 
-	var token1;
+	var token;
 	fetch('/api/speech-to-text/token')
 	.then(function(response) {
     	return response.text();
 	}).then(function(_token) {
-    	token1 = _token;
+    	token = _token;
 	}).catch(function(error) {
     	console.log(error);
 	});
 	setTimeout(
-	function () {startRecording(token1); }, 2000); 
+	function () {startRecording(token); }, 2000); 
 }
 
 function startRecording(token) {
@@ -60,16 +60,17 @@ function startRecording(token) {
 	docStream = stream; 
   document.querySelector('.stop-btn').onclick = function() {
     stream.stop();
+		resultJSON.text = $('.text-panel').html(); 
 		$.post('wResult', resultJSON); 
   };
 }
 
-function getToneAnalysis(text) {
+function getToneAnalysis(text, id) {
 	$.post('/api/tone', {'tone_input': text,'content_type': 'text/plain'},
-	toneCallback).fail(function() {console.log('fail')});
+	function(result) {toneCallback(result, id)}).fail(function() {console.log('fail')});
 }
 
-function toneCallback(result) {
+function toneCallback(result, id) {
 	var data = result.data; 
 	var text = result.content['tone_input']; 
 
@@ -84,6 +85,7 @@ function toneCallback(result) {
 			}
 		}
 	} 
+	$('#text' + id).css('background-color', mood[curTone.tone]);
 	$('.notes2').html('Current mood: ' + curTone.tone); 
 }
 
@@ -96,7 +98,7 @@ function getRecognizeOptions(token) {
       objectMode: true,
       interim_results: true,
       // note: in normal usage, you'd probably set this a bit higher
-      word_alternatives_threshold: 0.01,
+      word_alternatives_threshold: 0.1,
       timestamps: true, // set timestamps for each word - automatically turned on by speaker_labels
       // includes the speaker_labels in separate objects unless resultsBySpeaker is enabled
       speaker_labels: true,
@@ -113,30 +115,35 @@ function handleMsg(msg) {
 	var r = msg.results; 
 	var text; 
 	var sentence; 
-	count = r.length - 1; 
+	$('.temp').remove(); 
+	for (var i = 0; i < r.length; i++) {
+		text = r[i].alternatives[0].transcript; 
+		text = text.slice(0, -1);
 
-	text = r[count].alternatives[0].transcript; 
-	text = text.slice(0, -1);
+		if (text != '') {
+			if (r[i].speaker != undefined) {
+				sentence = 'Speaker' + r[i].speaker + ': ' + text; 
+			} else {
+				sentence = text; 
+			}
+			if (sentence[sentence.length - 1] != '.') {
+				if (!$('#text' + i).length) {
+					$('.text-panel').append('<div class="text-trans temp" id="text' + i + 
+						'">' + sentence + '</div>'); 
+				} else {
+					$('#text' + i).html(sentence); 	
+				}
+				getToneAnalysis($('#text' + i).html(), i); 
+			} else {
+				if (!$('#text' + i).length) {
+					$('.text-panel').append('<div class="text-trans" id="text' + i + 
+						'">' + sentence + '</div>'); 
+					getToneAnalysis($('#text' + i).html(), i); 
+				} 
+			}
 
-	if (text != '') {
-		getToneAnalysis(text); 
-		if (r[count].speaker != undefined) {
-			sentence = 'Speaker' + r[count].speaker + ': ' + text + '.'; 
-		} else {
-			sentence = text + '.'; 
 		}
-		if (!$('#text' + count).length) {
-			$('.text-panel').append('<div class="text-trans" id="text' + count + 
-				'">' + sentence + '</div>'); 
-		} else {
-			$('#text' + count).html(sentence); 	
-		}
-		if (!resultJSON.text[count]) {
-			resultJSON.text[count] = {}; 
-		}
-		resultJSON.text[count].content = sentence; 
-		resultJSON.text[count].style = mood[curTone.tone]; 
-		$('#text' + count).css('background-color', mood[curTone.tone]);
 		$(".text-panel").scrollTop($(".text-panel")[0].scrollHeight);
 	}
+
 }
