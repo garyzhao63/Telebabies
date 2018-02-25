@@ -17,6 +17,7 @@ function initializePage() {
 }
 
 function renderText(content) {
+/*
 	for (var i = 0; i < content.length; i++) {
 		var text = content[i]['content']; 
 		var style = content[i]['style']; 
@@ -25,4 +26,6 @@ function renderText(content) {
 		$('#text' + i).css('background-color', style);
 				
 	}
+*/
+$('.text-panel').append(content); 
 }
