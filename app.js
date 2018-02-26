@@ -138,6 +138,13 @@ app.get('/rUser', function(req, res, next) {
 }); 
 
 /***************** user list ***********/
+
+app.post('/wList', function(req, res, next) {
+  let data = JSON.stringify(req.body);  
+  console.log(req.body); 
+  fs.writeFileSync('./user_list.json', data);  
+});
+
 app.get('/rList', function(req, res, next) {
   fs.readFile('./user_list.json', function read(err, data) {
       if (err) {
@@ -146,6 +153,8 @@ app.get('/rList', function(req, res, next) {
       res.send(data); 
   });
 });
+
+
 
 
 

@@ -21,10 +21,10 @@
 
 .notes2 {
 	position: absolute;
-	font-size: 6vw; 
+	font-size: 5vw; 
 	color: #E3E3E3; 
 	left: 50%;
-	top: 15vh; 
+	top: 17vh; 
 	margin-right: -50%; 
 	transform: translate(-50%, -50%);
 }
@@ -66,4 +66,14 @@
 	top: 90vh; 
 	left: 50%; 
 	transform: translate(-50%, -50%); 
+}
+
+.time {
+	position: absolute;
+	font-size: 5vw; 
+	color: #E3E3E3; 
+	left: 50%;
+	top: 12.5vh; 
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
 }

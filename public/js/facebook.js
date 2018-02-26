@@ -14,18 +14,29 @@ function statusChangeCallback(response) {
   if (response.status === 'connected') {
     // Logged into your app and Facebook.
         console.log('Successfully logged in with Facebook');
-         FB.api('/me?fields=name,first_name,picture.width(480)', changeUser);
+         FB.api('/me?fields=name,first_name,picture.width(480),email', changeUser);
   }
-  location.href = '/index';
+  //location.href = '/index';
 }
 
 function changeUser(response) {
+
+  
+  var username = document.getElementById('username').value;
+  var data = JSON.parse($.ajax({type: "GET", url: "rList", async: false}).responseText);
+  for(var i = 0; i < data.length; i++){
+    if (data[i].username == username) {
+      //update user json with the correct user
+      $.post('wUser', data[i]);
+      break; 
+    }
+  }
+
   var data = JSON.parse($.ajax({type: "GET", url: "rUser", async: false}).responseText);
-  var curJSON = data.rickord123[0].info[0];
 
-  curJSON.name = response.name;
-  curJSON.picture = response.picture.data.url;
+  data.name = response.name;
+  data.username = response.email;
+  data.picture = response.picture.data.url;
 
-  console.log(response.name);
   $.post('wUser', data);
 }
