@@ -130,21 +130,6 @@ app.post('/rResult', function(req, res, next) {
 	});
 }); 
 
-/***************** user ***********/
-
-app.post('/wUser', function(req, res, next) {
-  let data = JSON.stringify(req.body);  
-  fs.writeFileSync('./user.json', data);  
-}); 
-
-app.get('/rUser', function(req, res, next) {
-  fs.readFile('./user.json', function read(err, data) {
-      if (err) {
-          throw err;
-      }
-      res.send(data); 
-  });
-}); 
 
 /***************** user list ***********/
 
