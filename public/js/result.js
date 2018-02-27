@@ -12,7 +12,7 @@ function initializePage() {
 	console.log("Javascript connected!");
 	$.post('/rResult', function(data) {
 		var content = JSON.parse(data); 
-		renderText(content['text']); 
+		renderText(content); 
 	}); 
 }
 
@@ -27,5 +27,26 @@ function renderText(content) {
 				
 	}
 */
-$('.text-panel').append(content); 
+var user; 
+var time; 
+var userdata = JSON.parse(window.localStorage.getItem('user'));  
+if (userdata && userdata.username) {
+	user = userdata.username; 
+} else {
+	user = 'rickord123'; 
+}
+if (window.localStorage.getItem('time')) {
+	time = window.localStorage.getItem('time'); 
+} else {
+	time = 0; 
+}
+
+if (content[user]) {
+	for (var i = 0; i < content[user].length; i++) {
+		if (content[user][i].date == time) {
+			$('.text-panel').append(content[user][i].text); 
+			break; 
+		}
+	}
+}
 }

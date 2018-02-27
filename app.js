@@ -30,16 +30,24 @@ var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 var sttAuthService1 = new watson.AuthorizationV1(
   Object.assign(
     {
+		/*
       username: "377a73cd-72b3-4072-a03f-a06fba891995", 
       password: "3YARE0HbQKJV"
+			*/
+			username: "21cb51ae-b6f5-4543-964b-bae05dd78b2b",
+  		password: "h0rYIhMr5EsA"
     },
     vcapServices.getCredentials('speech_to_text') // pulls credentials from environment in bluemix, otherwise returns {}
   )
 );
 
 var toneAnalyzer = new ToneAnalyzerV3({
+ 	username: "75f2d442-c777-45db-be7d-28fe9c4325a7",
+  password: "aVCmfZ4GL77M", 
+	/*
   username: "94ebc458-8622-4774-bea4-ebd897e43eb0", 
   password: "cyt76COBKvEo", 
+	*/
   version_date: '2017-09-21'
 });
 
@@ -108,7 +116,8 @@ app.post('/api/tone', function(req, res, next) {
 });
 
 app.post('/wResult', function(req, res, next) {
-	let data = JSON.stringify(req.body);  
+	let data = JSON.stringify(req.body); 
+	console.log(req.body); 
 	fs.writeFileSync('./result.json', data);  
 }); 
 
