@@ -19,11 +19,12 @@ function statusChangeCallback(response) {
         console.log('Successfully logged in with Facebook');
          FB.api('/me?fields=name,first_name,picture.width(480),email', changeUser);
   }
-  location.href = '/index';
 }
 
 function changeUser(response) {
 
+	console.log('a'); 
+	console.log(response); 
   console.log(response.email);
 
   var username = response.email;
@@ -42,9 +43,7 @@ function changeUser(response) {
   
     "recording": 
       [
-        {"date":"12/08/2017"},
-        {"date":"11/08/2017"},
-        {"date":"10/08/2017"}
+        {"date":"1519702627312"}
       ],
     
 
@@ -71,7 +70,8 @@ function changeUser(response) {
   window.localStorage.setItem("user", JSON.stringify(data[username]));
   $.post('wList', data);
 
-}
+	}
+  location.href = '/index';
 
 
 }

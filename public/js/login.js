@@ -39,9 +39,7 @@ function loginClick(e) {
 	
 		"recording": 
 			[
-				{"date":"12/08/2017"},
-				{"date":"11/08/2017"},
-				{"date":"10/08/2017"}
+				{"date":"1519702627312"}
 			],
 		
 
