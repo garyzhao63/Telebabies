@@ -7,69 +7,88 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Set Routine</title>
-    
-    <script src="/js/jquery-1.11.0.js"></script>
+    <title>Settings</title>
 
+    <script src="js/jquery-1.11.0.js"></script>
     <!-- Bootstrap core CSS -->
-
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/css/general.css" rel="stylesheet">
-    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/settings.css" rel="stylesheet">
     <link href="/css/settings-routine.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/mobiscroll.javascript.min.css">
+    <script src="/js/mobiscroll.javascript.min.js"></script>
+    <script src="/js/settings-routine.js"></script>
 
   </head>
+  <body>
 
-  <body class="main-screen">
 
-    <main role="main" class="container">
-
+    <main role="main">
         <div class="headbar">
-           <a href="settings">            
+           <a href="index">            
                 <img src="/images/leftarrow.png" class="back-button img-responsive">
             </a>
+
+            <div class="set-alert img-responsive">
+                <span class="notes">ADD ALERT</span>
+            </div>
 
             <a href="index">            
                 <img src="/images/homeicon.png" class="home-button img-responsive">
             </a> 
         </div>
 
-    <!-- Bootstrap stylesheet -->
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
- 
-    <!-- ClockPicker Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap-clockpicker.min.css">
- 
-    <!-- Input group, just add class 'clockpicker', and optional data-* -->
-    <div class="input-group clockpicker clock" data-placement="bottom" data-align="top" data-autoclose="true">
-        <input type="text" class="form-control" value="09:32">
-        <span class="input-group-addon">
-            <span class="glyphicon glyphicon-time"></span>
-        </span>
-    </div>
+        <div class="space"></div>
 
-    <!-- jQuery and Bootstrap scripts -->
-    <script type="text/javascript" src="/js/jquery-clockpicker.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-     
-    <!-- ClockPicker script -->
-    <script type="text/javascript" src="/js/bootstrap-clockpicker.min.js"></script>
-    <script type="text/javascript">
-    $('.clockpicker').clockpicker()
-        .find('input').change(function(){
-            // TODO: time changed 
-            console.log(this.value);
-        });
-    $('#demo-input').clockpicker({
-        autoclose: true
+        <div class="routine-bar" id={{time}}>
+            <span class="notes">TIME</span>
+            <span>
+                <input class="inputbar" id="demo" placeholder="Please Select..." /></div>
+            </span>
+        </div>
+
+        <div class="padding"></div>
+        <div class="routine-bar" id={{time}}>
+            <div class="notes-routine-left">REPEAT<br></div>
+            <span>
+                <input class="inputbar" id="demo" placeholder="Please Select..." /></div>
+            </span>
+        </div>
+
+
+        <div class="plus">
+            <div>
+                <a href="settings-routine" id="plus-button">
+                    <img src="/images/plusicon.png" class="img-responsive" align="bottom">
+                </a>
+            </div>
+        </div>
+<script>
+
+    mobiscroll.settings = {
+        lang: 'en',            // Specify language like: lang: 'pl' or omit setting to use default
+        theme: 'ios'      // Specify theme like: theme: 'ios' or omit setting to use default
+    };
+    
+    
+    
+    mobiscroll.date('#demo-header', {
+        theme: 'ios',     // Specify theme like: theme: 'ios' or omit setting to use default
+        lang: 'en',            // Specify language like: lang: 'pl' or omit setting to use default
+        display: 'bottom',     // Specify display mode like: display: 'bottom' or omit setting to use default
+        headerText: '{value}'  // More info about headerText: https://docs.mobiscroll.com/4-0-0_beta3-1/javascript/datetime#opt-headerText
+    });
+    
+    mobiscroll.date('#demo-non-form', {
+        theme: 'ios',     // Specify theme like: theme: 'ios' or omit setting to use default
+        lang: 'en',            // Specify language like: lang: 'pl' or omit setting to use default
+        display: 'bottom'      // Specify display mode like: display: 'bottom' or omit setting to use default
     });
 </script>
 
-
-
-
+        
     </main><!-- /.container -->
 
     <!-- Bootstrap core JavaScript
@@ -78,7 +97,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (blelow), or include individual files as needed -->
-
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

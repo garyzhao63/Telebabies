@@ -1,8 +1,11 @@
-
 /*
  * GET settings page.
  */
 
+var data = require('../user.json');
+
 exports.view = function(req, res) {
-	res.render('settings-routine'); 
+	console.log(data);
+	res.render('settings-routine', data); 
 }
+
