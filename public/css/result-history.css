@@ -1,4 +1,5 @@
 ol {
+  position: absolute; 
   width: 100%;
   padding: 0;
 }
@@ -34,4 +35,17 @@ ol li {
 	position: relative;
 	text-align: center;
 	color: #E3E3E3;
+}
+
+.recordings {
+	top: 10vh;	
+}
+
+.notes {
+	font-size: 4vw; 
+	color: #E3E3E3; 
+	left: 50%;
+	top: 15vh;
+	margin-right: -50%; 
+	transform: translateX(-50%);
 }
