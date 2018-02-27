@@ -24,7 +24,7 @@ function elapsedTimeConvert(time) {
 
 function dateConvert(time) {
 	var timeD = new Date(time); 
-	var day = timeD.getDay(); 
+	var day = timeD.getDate(); 
 	var month = timeD.getMonth() + 1; 
 	var year = timeD.getFullYear(); 
 	return month +'/' + day + '/' + year; 
