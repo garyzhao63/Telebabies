@@ -35,7 +35,7 @@ function switchClick(e) {
 function repeatClick(e) {
 
 	var ID = $(this).closest(".routines").attr('id');
-	var data = JSON.parse($.ajax({type: "GET", url: "rUser", async: false}).responseText);
+	var data = JSON.parse(window.localStorage.getItem("user"));
 	
 	var curJSON = data.routine[ID];
 

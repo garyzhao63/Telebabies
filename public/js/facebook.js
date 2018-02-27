@@ -19,7 +19,7 @@ function statusChangeCallback(response) {
         console.log('Successfully logged in with Facebook');
          FB.api('/me?fields=name,first_name,picture.width(480),email', changeUser);
   }
-  //location.href = '/index';
+  location.href = '/index';
 }
 
 function changeUser(response) {
