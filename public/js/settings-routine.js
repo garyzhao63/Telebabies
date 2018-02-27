@@ -13,6 +13,7 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
+	$("#demoRepeat").html("daily");
 	mobiscroll.time('#demo', {
 		onSet: function (event, inst) {
             selectedTime = inst.getVal(); // Call the getVal method
@@ -25,6 +26,7 @@ function initializePage() {
 
 	console.log("Javascript connected!");
 	$("#plus-button").click(confirm);
+	$("#demoRepeat").click(repeatClick);
 }
 
 function confirm(e) {
@@ -51,7 +53,7 @@ function confirm(e) {
 		if (dateObj.getHours() > 12) {
 			hourStr = (dateObj.getHours() - 12).toString(); 
 			M = ' PM'; 
-		} else if (dateObj.getHours() = 12) {
+		} else if (dateObj.getHours() == 12) {
 			M = ' PM'; 
 		} else {
 			M = ' AM'; 
@@ -59,8 +61,8 @@ function confirm(e) {
 
 		var newJSON = {
 			"time": hourStr + ":" + minuteStr + M, 
-		"repeat": "daily",
-		"id": size
+			"repeat": $("#demoRepeat").html(),
+			"id": size
 		};
 
 		data.routine.push(newJSON);
@@ -73,4 +75,24 @@ function confirm(e) {
 	}
 	
 
+
 }
+
+
+function repeatClick(e) {
+
+	e.preventDefault();
+	var curRepeat = $(this).html();
+
+	if(curRepeat == "daily") {
+		$(this).html("weekly");
+	} 
+	else if (curRepeat == "weekly") {
+		$(this).html("monthly");
+	} 
+	else {
+		$(this).html("daily");
+	}
+
+}
+
