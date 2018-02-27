@@ -35,7 +35,7 @@ function processResult(content) {
 
 	$('li').click(function() {
 		window.localStorage.setItem('time', $(this).attr('id')); 	
-		location.href = '/result2'; 
+		location.href = '/result'; 
 	}); 
 
 }
