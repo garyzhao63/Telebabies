@@ -74,21 +74,21 @@ function repeatClick(e) {
 		//update user_list json with the new data
 		list[data.username] = data;
 		//update local stroage
-		window.localStorage.setItem("user", JSON.stringify(data[data.username]));
+		window.localStorage.setItem("user", JSON.stringify(data));
 		$.post('wList', list); 
 	} 
 	else if (curRepeat == "weekly<br>") {
 		$(this).html("monthly<br>");
 		curJSON.repeat = "monthly";
 		list[data.username] = data;
-		window.localStorage.setItem("user", JSON.stringify(data[data.username]));
+		window.localStorage.setItem("user", JSON.stringify(data));
 		$.post('wList', list); 
 	} 
 	else {
 		$(this).html("daily<br>");
 		curJSON.repeat = "daily";
 		list[data.username] = data;
-		window.localStorage.setItem("user", JSON.stringify(data[data.username]));
+		window.localStorage.setItem("user", JSON.stringify(data));
 		$.post('wList', list); 
 	}
 
