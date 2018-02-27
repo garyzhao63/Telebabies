@@ -1,5 +1,7 @@
 'use strict';
 
+var data;
+
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -11,33 +13,26 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
-	$(".login-button").click(loginClick);
+	//Use Facebook login instead
+	//$(".login-button").click(loginClick);
 
 }
 
 function loginClick(e) {
 	e.preventDefault();
 
-	var userExist = false;
+	var data = JSON.parse($.ajax({type: "GET", url: "rList", async: false}).responseText);
 	
 	var username = document.getElementById('username').value;
-	var data = JSON.parse($.ajax({type: "GET", url: "rList", async: false}).responseText);
-	data["123"];
-
-	for(var i = 0; i < data.length; i++){
-		if (data[i].username == username) {
-			//update user json with the correct user
-			userExist = true;
-			$.post('wUser', data[i]);
-			break; 
-		}
+	
+	//case when user exists
+	if (data[username] != undefined) {
+		window.localStorage.setItem("user", JSON.stringify(data[username]));
 	}
-
-	if (!userExist) {
-
-		var jsonNew = {
-		"name":"123123123123123",
-		"username":"test2",
+	else {
+		var jsonNew =  `{
+		"name":"Rick Ord",
+		"username":"test123",
 		"password":"123456",
 		"phone":"6191234567",
 		"picture":"http://jacobsschool.ucsd.edu/faculty/images/teacherawards/RickOrd.jpg",
@@ -63,14 +58,12 @@ function loginClick(e) {
 				{"time":"04:15 PM","repeat":"daily","id":"1"},
 				{"time":"01:00 AM","repeat":"monthly","id":"2"}
 			]
-	};
-	//var newArr = JSON.parse(jsonNew);
-	data.push(jsonNew);
-
+	}`;
+	data[username] = JSON.parse(jsonNew);
 	console.log(data);
-	let data2 = JSON.stringify(data);  
-	$.post('wList', data2);
+	$.post('wList', data);
 	}
+	
+}
 		
 
-}

@@ -1,3 +1,6 @@
+var data = JSON.parse($.ajax({type: "GET", url: "rList", async: false}).responseText);
+  
+
 function checkLoginState() {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
@@ -16,27 +19,59 @@ function statusChangeCallback(response) {
         console.log('Successfully logged in with Facebook');
          FB.api('/me?fields=name,first_name,picture.width(480),email', changeUser);
   }
-  //location.href = '/index';
+  location.href = '/index';
 }
 
 function changeUser(response) {
 
-  
-  var username = document.getElementById('username').value;
-  var data = JSON.parse($.ajax({type: "GET", url: "rList", async: false}).responseText);
-  for(var i = 0; i < data.length; i++){
-    if (data[i].username == username) {
-      //update user json with the correct user
-      $.post('wUser', data[i]);
-      break; 
-    }
+  console.log(response.email);
+
+  var username = response.email;
+
+  //case when user exists
+  if (data[username] != undefined) {
+    window.localStorage.setItem("user", JSON.stringify(data[username]));
   }
+  else {
+    var jsonNew =  `{
+    "name":"Rick Ord",
+    "username":"test123",
+    "password":"123456",
+    "phone":"6191234567",
+    "picture":"http://jacobsschool.ucsd.edu/faculty/images/teacherawards/RickOrd.jpg",
+  
+    "recording": 
+      [
+        {"date":"12/08/2017"},
+        {"date":"11/08/2017"},
+        {"date":"10/08/2017"}
+      ],
+    
 
-  var data = JSON.parse($.ajax({type: "GET", url: "rUser", async: false}).responseText);
+    "family":
+      [
+        {"name":"Kevin"},
+        {"name":"Sarah"}
+      ],
+    
 
-  data.name = response.name;
-  data.username = response.email;
-  data.picture = response.picture.data.url;
+    "routine":
+      [
+        {"time":"06:00 PM","repeat":"daily","id":"0"},
+        {"time":"04:15 PM","repeat":"daily","id":"1"},
+        {"time":"01:00 AM","repeat":"monthly","id":"2"}
+      ]
+  }`;
 
-  $.post('wUser', data);
+  data[username] = JSON.parse(jsonNew);
+  data[username].name = response.name;
+  data[username].username = response.email;
+  data[username].picture = response.picture.data.url;
+
+  window.localStorage.setItem("user", JSON.stringify(data[username]));
+  $.post('wList', data);
+
+}
+
+
 }
