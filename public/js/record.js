@@ -1,12 +1,18 @@
 'use strict';
 
-var user = 'rickord123'; 
+var user; 
+var userdata = JSON.parse(window.localStorage.getItem('user'));  
+if (userdata && userdata.username) {
+	user = userdata.username; 
+} else {
+	user = 'rickord123'; 
+}
 
 var resultJSON = {}; 
 resultJSON.date = Date.now(); 
 resultJSON.user = user; 
 resultJSON.text = ''; 
-resultJSON.time = ''; 
+resultJSON.time = '0:0:0'; 
 
 
 var mood = {
@@ -24,6 +30,8 @@ var curTone = {
 	score: 0
 }; 
 
+var content; 
+
 var docStream;
 
 // Call this function when the page loads (the "ready" event)
@@ -36,6 +44,22 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+	console.log(dateConvert(resultJSON.date)); 
+	$.post('/rResult', function(data) {
+		content = JSON.parse(data); 
+		console.log(content); 
+	}); 
+
+  document.querySelector('.stop-btn').onclick = function() {
+		resultJSON.text = $('.text-panel').html(); 
+		if (!content[user]) {
+			content[user] = []; 
+		}
+		content[user].push(resultJSON); 
+		window.localStorage.setItem('time', resultJSON.date); 
+		$.post('wResult', content); 
+  };
+
 
 	var token;
 	fetch('/api/speech-to-text/token')
@@ -68,7 +92,12 @@ function startRecording(token) {
   document.querySelector('.stop-btn').onclick = function() {
     stream.stop();
 		resultJSON.text = $('.text-panel').html(); 
-		$.post('wResult', resultJSON); 
+		if (!content[user]) {
+			content[user] = []; 
+		}
+		content[user].push(resultJSON); 
+		window.localStorage.setItem('time', resultJSON.date); 
+		$.post('wResult', content); 
   };
 }
 
