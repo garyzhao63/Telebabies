@@ -34,6 +34,7 @@
 	width: 20vh;
 	position: absolute;
 	top: 18vh; 
+	border-radius: 50%;
 }
 
 .back-button {
@@ -70,7 +71,7 @@
   	color: #D3A9AC;
   	margin-left: auto;
 	margin-right: auto;
-	left: 34%;
+	left: 32%;
 }
 
 .functions{
