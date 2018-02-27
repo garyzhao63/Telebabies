@@ -141,7 +141,7 @@ app.get('/rUser', function(req, res, next) {
 
 app.post('/wList', function(req, res, next) {
   let data = JSON.stringify(req.body);  
-  console.log(req.body); 
+  console.log(data); 
   fs.writeFileSync('./user_list.json', data);  
 });
 

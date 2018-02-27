@@ -85,6 +85,8 @@
   	margin-right: 3vw;
   	transform: translateY(-50%);
   	color: #D3A9AC;
+  	width: 40%;
+  	overflow: scroll;
 }
 
 .rightarrow {
