@@ -21,12 +21,12 @@
 }
 
 .setting-button {
-	width: 13vw; 
-	max-width: 13vh; 
-	max-height: 13vh; 
+	width: 8vw; 
+	max-width: 8vh; 
+	max-height: 8vh; 
 	position: absolute;
-	right: 5vw;
-	bottom: 5vw;
+	right: 7.5vw;
+	bottom: 7.5vw;
 }
 
 .profile-button {
