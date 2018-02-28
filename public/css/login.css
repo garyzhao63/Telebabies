@@ -34,8 +34,8 @@
 	width: 70vw;
 	position: absolute;
 	top: 50vh; 
-	left: 65%;
+	/*left: 65%;*/
 	margin-right: -50%; 
-	transform: translate(-50%, -50%);
+	transform: translate(-57%, -50%);
     font-size: 3vh;
 }
