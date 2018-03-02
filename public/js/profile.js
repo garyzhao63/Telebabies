@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 
 // Call this function when the page loads (the "ready" event)
@@ -14,5 +14,19 @@ function initializePage() {
 	$(".infobars #phone").html(data.phone);
 	$("#userid").html(data.username);
 	$(".profile").html("<img src=" + data.picture + " class=\"profile-photo\">");
+	initGestures(); 
+}
 
+// init jQuery gestures  
+function initGestures() {
+	// add gestures listener here
+	$(function() {
+		$('.profile-photo').bind('taphold', tapholdHandler); 
+
+		function tapholdHandler(event){
+			console.log('aaa'); 
+			//$('phone-input').show(); 
+		}
+	
+	}); 
 }
