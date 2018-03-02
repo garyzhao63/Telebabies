@@ -1,0 +1,28 @@
+.clock {
+	top: 20vh;
+}
+
+.inputbar {
+	background-color: transparent;
+	border: none;
+	text-align: right;
+	position: relative;
+	float: right;
+	transform: translateY(-5%);
+	margin-right: 5vw;
+	color: #D3A9AC;
+}
+
+.padding {
+	background-color: transparent;
+	height: 5vh;
+	width: 100vw;
+}
+
+#add-button {
+	color: #D3A9AC;
+	font-size: 7vw;
+	position: absolute;
+	right: 6vw;
+	top: 3.8vh;
+}
