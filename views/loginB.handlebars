@@ -18,7 +18,7 @@
     <!-- Custom styles for this template -->
     <link href="/css/general.css" rel="stylesheet">
     <link href="/css/index.css" rel="stylesheet">
-    <link href="/css/login.css" rel="stylesheet">
+    <link href="/css/loginB.css" rel="stylesheet">
     <script src="/js/login.js"></script>
 </head>
 
@@ -28,27 +28,28 @@
 
   <main role="main">
 
-  	<div class="username">
-    	<b>Username: </b>
-    	<p> </p>
-    	<input type="text" id="username" required>
-	</div>
+    <div class="logininfo">
+    <div class="infobar">
+        <img src="/images/profileicon.png" id="profileicon" class="img-responsive">
+        <span>
+            <input id="nameinput" placeholder="Username">
+        </span>
+    </div>
 
-    <div class="password">
-    	<b>Password: </b>
-    	<p> </p>
-    	<input type="password" id="password" required>
-	</div>
-
-	<div class="login-button">
-    
-    	<img src="/images/login_button.png" href="#" class="img-responsive">
-	
-	</div>
+        <div class="infobar">
+            <img src="/images/lock.png" id="lockicon" class="img-responsive">
+            <span>
+                <input type="Password" id="pwinput" placeholder="Password">
+            </span>
+        </div>
+    </div>
+        <div class="login-button">
+            <img src="/images/signin.png" href="#" class="img-responsive">
+        </div>
 
     <div class="facebookLogin">
-    <a href="index">
-        <fb:login-button size="xlarge" scope="public_profile,email" href="#"  onlogin="checkLoginState();">Log in with Facebook</fb:login-button>
+    <a href="index" id="fbinstr">Or login with Facebook:
+        <fb:login-button size="small" scope="public_profile,email" href="#"  onlogin="checkLoginState();"></fb:login-button>
     <a>
     </p>
 

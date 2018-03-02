@@ -39,6 +39,7 @@ ol li {
 
 .recordings {
 	top: 10vh;	
+	overflow: scroll;
 }
 
 .notes {

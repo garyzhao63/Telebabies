@@ -1,0 +1,94 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Settings</title>
+
+    <script src="js/jquery-1.11.0.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/general.css" rel="stylesheet">
+    <link href="/css/settings.css" rel="stylesheet">
+    <link href="/css/settings-routineB.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/mobiscroll.javascript.min.css">
+    <script src="/js/mobiscroll.javascript.min.js"></script>
+    <script src="/js/settings-routineB.js"></script>
+
+  </head>
+  <body>
+
+
+    <main role="main">
+        <div class="headbar">
+           <a href="settings">            
+                <img src="/images/leftarrow.png" class="back-button img-responsive">
+            </a>
+
+            <div class="set-alert img-responsive">
+                <span class="notes">ADD ALERT</span>
+            </div>
+
+            <a href="index" id="add-button">            
+                Add
+            </a> 
+        </div>
+
+        <div class="space"></div>
+
+        <div class="routine-bar" id={{time}}>
+            <span class="notes">TIME</span>
+            <span>
+                <input class="inputbar" id="demo" placeholder="Please Select..." /></div>
+            </span>
+        </div>
+
+        <div class="padding"></div>
+        <div class="routine-bar" id={{time}}>
+            <div class="notes-routine-left">REPEAT<br></div>
+            <span><div class="inputbar" id="demoRepeat">
+            </div>
+            </span>
+        </div>
+
+<script>
+
+    mobiscroll.settings = {
+        lang: 'en',            // Specify language like: lang: 'pl' or omit setting to use default
+        theme: 'ios-dark'      // Specify theme like: theme: 'ios' or omit setting to use default
+    };
+    
+    
+    
+    mobiscroll.date('#demo-header', {
+        theme: 'ios-dark',     // Specify theme like: theme: 'ios' or omit setting to use default
+        lang: 'en',            // Specify language like: lang: 'pl' or omit setting to use default
+        display: 'bottom',     // Specify display mode like: display: 'bottom' or omit setting to use default
+        headerText: '{value}'  // More info about headerText: https://docs.mobiscroll.com/4-0-0_beta3-1/javascript/datetime#opt-headerText
+    });
+    
+    mobiscroll.date('#demo-non-form', {
+        theme: 'ios-dark',     // Specify theme like: theme: 'ios' or omit setting to use default
+        lang: 'en',            // Specify language like: lang: 'pl' or omit setting to use default
+        display: 'bottom'      // Specify display mode like: display: 'bottom' or omit setting to use default
+    });
+</script>
+
+        
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (blelow), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

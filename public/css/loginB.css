@@ -1,0 +1,104 @@
+.username {
+	position: absolute;
+	top: 5vh; 
+	left: 50%;
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
+	left: 50%;
+	font-size: 3vh;
+}
+
+.password {
+	position: absolute;
+	top: 20vh; 
+	left: 50%;
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
+	left: 50%;
+    font-size: 3vh;
+}
+
+.login-button {
+	margin-top: 30vw;
+	width: 60vw;
+	position: absolute;
+	top: 35vh; 
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
+	left: 50%;
+    font-size: 3vh;
+}
+
+#fbinstr {
+	color: #E3E3E3;
+	font-size: 14px;
+}
+
+.facebookLogin {
+	margin-top: 20vw;
+	width: 70vw;
+	position: absolute;
+	top: 50vh; 
+	/*left: 65%;*/
+	margin-right: -50%; 
+	transform: translate(0%, -50%);
+    font-size: 3vh;
+    border-radius: 50%;
+}
+
+.logininfo {
+	margin-top: 40vw;
+	top: 20vh;
+}
+
+.infobar {
+	border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-color: #E3E3E3;
+    border-width: 0.5px;
+    width: 60vw;
+    height: 10vh;
+}
+
+#nameinput {
+	background-color: transparent;
+	border-style: none;
+	transform: translate(5%, 150%);
+	outline: none;
+	color: #D3A9AC;
+}
+
+#pwinput {
+	background-color: transparent;
+	border-style: none;
+	transform: translate(12%, 150%);
+	outline: none;
+	color: #D3A9AC;
+
+}
+
+#profileicon {
+	width: 11vw; 
+	max-width: 9vh; 
+	max-height: 9vh; 
+	position: relative;
+	transform: translate(-15%, 52%);
+	float: left;
+}
+
+#lockicon {
+	width: 8vw; 
+	max-width: 6vh; 
+	max-height: 6vh; 
+	position: relative;
+	transform: translate(-3%, 90%);
+	float: left;
+}
+
+.padding {
+	background-color: transparent;
+	height: 5vh;
+	width: 100vw;
+}

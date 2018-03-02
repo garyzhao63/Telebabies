@@ -17,42 +17,27 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/general.css" rel="stylesheet">
-    <link href="/css/index.css" rel="stylesheet">
-    <link href="/css/login.css" rel="stylesheet">
-    <script src="/js/login.js"></script>
-</head>
+    <link href="/css/indexB.css" rel="stylesheet">
 
   </head>
 
-  <body class="main-screen container notes">
+  <body class="main-screen">
 
-  <main role="main">
 
-  	<div class="username">
-    	<b>Username: </b>
-    	<p> </p>
-    	<input type="text" id="username" required>
-	</div>
+    <main role="main" class="container">
+        <div class="notes">TAP TO RECORD</div>
+        <a href="record">            
+            <img src="/images/playbutton.png" href="#" class="play-button img-responsive">
+        </a>
 
-    <div class="password">
-    	<b>Password: </b>
-    	<p> </p>
-    	<input type="password" id="password" required>
-	</div>
+        <a href="settings">            
+            <img src="/images/alarm.png" href="#" class="setting-button img-responsive">
+        </a>
 
-	<div class="login-button">
-    
-    	<img src="/images/login_button.png" href="#" class="img-responsive">
-	
-	</div>
-
-    <div class="facebookLogin">
-    <a href="index">
-        <fb:login-button size="xlarge" scope="public_profile,email" href="#"  onlogin="checkLoginState();">Log in with Facebook</fb:login-button>
-    <a>
-    </p>
-
-    </main><!-- /.container --></body>
+        <a href="profile">            
+            <img src="/images/profileicon.png" href="#" class="profile-button img-responsive">
+        </a>
+    </main><!-- /.container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -61,7 +46,5 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (blelow), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    {{> facebook}}
-    <script src="/js/facebook.js"></script>
   </body>
 </html>
