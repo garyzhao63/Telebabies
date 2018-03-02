@@ -12,6 +12,7 @@ var vcapServices = require('vcap_services');
 const fs = require('fs'); 
 
 var login = require('./routes/login');
+var loginB = require('./routes/loginB');
 var index = require('./routes/index');
 var settings = require('./routes/settings');
 var settingsroutine = require('./routes/settings-routine');
@@ -90,6 +91,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', login.view);
+app.get('/loginB', loginB.view);
 app.get('/index', index.view);
 app.get('/settings', settings.view); 
 app.get('/settings-routine', settingsroutine.view); 

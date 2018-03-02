@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Main Screen</title>
+    
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/general.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/loginB.css" rel="stylesheet">
+    <script src="/js/login.js"></script>
+</head>
+
+  </head>
+
+  <body class="main-screen container notes">
+
+  <main role="main">
+
+    <div class="logininfo">
+    <div class="infobar">
+        <img src="/images/profileicon.png" id="profileicon" class="img-responsive">
+        <span>
+            <input id="nameinput" placeholder="Username">
+        </span>
+    </div>
+
+        <div class="infobar">
+            <img src="/images/lock.png" id="lockicon" class="img-responsive">
+            <span>
+                <input type="Password" id="pwinput" placeholder="Password">
+            </span>
+        </div>
+    </div>
+        <div class="login-button">
+            <img src="/images/signin.png" href="#" class="img-responsive">
+        </div>
+
+    <div class="facebookLogin">
+    <a href="index" id="fbinstr">Or login with Facebook:
+        <fb:login-button size="small" scope="public_profile,email" href="#"  onlogin="checkLoginState();"></fb:login-button>
+    <a>
+    </p>
+
+    </main><!-- /.container --></body>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (blelow), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    {{> facebook}}
+    <script src="/js/facebook.js"></script>
+  </body>
+</html>
