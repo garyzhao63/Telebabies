@@ -2,12 +2,19 @@
 
 var data = JSON.parse(window.localStorage.getItem("user"));
 var list = JSON.parse($.ajax({type: "GET", url: "rList", async: false}).responseText);
+var swipe;
+
 
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
+
 })
+
+
+
+
 
 /*
  * Function that is called when the document is ready.
@@ -39,6 +46,35 @@ function initializePage() {
 
 	$(".switch-button").click(switchClick);
 	$(".notes-routine-right").click(repeatClick);
+
+	/** Swipe listner */
+	swipe = document.getElementById("routineID");
+	new Slip(swipe);
+
+	swipe.addEventListener('slip:beforeswipe', function(e) {
+	});
+
+	swipe.addEventListener('slip:swipe', function(e) {
+    	// e.target list item swiped;
+    	if (confirm("Confirm deletion?")) {
+        // list will collapse over that element
+       		e.target.parentNode.removeChild(e.target);
+
+       		//hide the "repeat" bar
+       		var str = ".routines#" + e.target.id;
+       		$(str).hide();
+
+       		var arr = data.routine;
+       		//remove the array item that that ID
+			arr.splice(e.target.id, 1);
+			list[data.username] = data;
+			//update local stroage
+			window.localStorage.setItem("user", JSON.stringify(data));
+			$.post('wList', list); 
+    	} else {
+        	e.preventDefault(); // will animate back to original position
+    	}
+	});
 
 }
 
@@ -93,3 +129,4 @@ function repeatClick(e) {
 	}
 
 }
+
