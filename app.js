@@ -14,6 +14,7 @@ const fs = require('fs');
 var login = require('./routes/login');
 var loginB = require('./routes/loginB');
 var index = require('./routes/index');
+var indexB = require('./routes/indexB');
 var settings = require('./routes/settings');
 var settingsroutine = require('./routes/settings-routine');
 var settingsroutineB = require('./routes/settings-routineB');
@@ -94,6 +95,7 @@ if ('development' == app.get('env')) {
 app.get('/', login.view);
 app.get('/loginB', loginB.view);
 app.get('/index', index.view);
+app.get('/indexB', indexB.view);
 app.get('/settings', settings.view); 
 app.get('/settings-routine', settingsroutine.view); 
 app.get('/settings-routineB', settingsroutineB.view); 
