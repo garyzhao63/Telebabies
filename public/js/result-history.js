@@ -1,6 +1,7 @@
 'use strict';
 
 var data = JSON.parse(window.localStorage.getItem("user"));
+var swipe;
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -37,5 +38,29 @@ function processResult(content) {
 		window.localStorage.setItem('time', $(this).attr('id')); 	
 		location.href = '/result2'; 
 	}); 
+
+	/** Swipe listner */
+	swipe = document.querySelector("ol");
+	new Slip(swipe);
+
+	swipe.addEventListener('slip:beforeswipe', function(e) {
+		console.log("beforeswipe");
+	});
+
+	swipe.addEventListener('slip:swipe', function(e) {
+    	// e.target list item swiped;
+    	console.log("sipweed");
+    	if (confirm("Confirm deletion?")) {
+        // list will collapse over that element
+       		e.target.parentNode.removeChild(e.target);
+
+       		//hide the "repeat" bar
+       		
+
+       		
+    	} else {
+        	e.preventDefault(); // will animate back to original position
+    	}
+	});
 
 }
