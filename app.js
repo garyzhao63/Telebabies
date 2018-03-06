@@ -22,6 +22,7 @@ var profile = require('./routes/profile');
 var record = require('./routes/record'); 
 var result = require('./routes/result'); 
 var resulthistory = require('./routes/result-history'); 
+var familymembers = require('./routes/familymembers');
 
 var watson = require('watson-developer-cloud');
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
@@ -104,6 +105,8 @@ app.get('/record', record.view);
 app.get('/result', result.view); 
 app.get('/result2', result.view2); 
 app.get('/result-history', resulthistory.view); 
+app.get('/familymembers', familymembers.view);
+
 // Example route
 // app.get('/users', user.list);
 
