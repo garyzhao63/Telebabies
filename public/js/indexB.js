@@ -12,7 +12,7 @@ function initializePage() {
 	console.log("Javascript connected!");
 	
 	$("#history-button").click(function(){
-		ga("send", "event", "button", "click");
+		gtag("send", "event", "button", "click");
 		console.log("In listener.");
 	});
 }
