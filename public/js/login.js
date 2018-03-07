@@ -1,7 +1,5 @@
 'use strict';
 
-window.localStorage.setItem("user", "{}");
-
 var data;
 
 
