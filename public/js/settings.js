@@ -25,13 +25,28 @@ function initializePage() {
 	for (var i = 0; i < data.routine.length; i ++) {
 		var str1 = `<div class="routine-bar" id=`;
 		var str2 = `><span class="notes">`;
-		var str3 = `</span>
-            <span>
-                <a href="#" id="routine-button">
-                    <img src="/images/switchoff.png" class="switch-button img-responsive" align="right">
-                </a>
-            </span>
-        </div><div class="routines" id=`;
+
+		var str3;
+
+		//Check the database whether routine was on or off
+		if(data.routine[i].on == "true"){
+			str3 = `</span>
+			            <span>
+			                <a href="#" id="routine-button">
+			                    <img src="/images/switchon.png" class="switch-button img-responsive" align="right">
+			                </a>
+			            </span>
+			        </div><div class="routines" id=`;
+    	} else {
+    		str3 = `</span>
+			            <span>
+			                <a href="#" id="routine-button">
+			                    <img src="/images/switchoff.png" class="switch-button img-responsive" align="right">
+			                </a>
+			            </span>
+			        </div><div class="routines" id=`;
+    	}
+
     	var str4 = `>
             <div class="notes-routine-left"> REPEAT<br></div>
             <div class="notes-routine-right">`;
@@ -88,8 +103,7 @@ function switchClick(e) {
 		$(this).attr("src","/images/switchon.png");
 		$(rtnQuery).show(); 
 
-		data.routine[ID].on = true;
-		console.log(data.routine[ID].on);
+		data.routine[ID].on = "true";
 		list[data.username] = data;
 		window.localStorage.setItem("user", JSON.stringify(data));
 		$.post('wList', list); 
@@ -97,8 +111,7 @@ function switchClick(e) {
 		$(this).attr("src","/images/switchoff.png");
 		$(rtnQuery).hide(); 
 
-		data.routine[ID].on = false;
-		console.log(data.routine[ID].on);
+		data.routine[ID].on = "false";
 		list[data.username] = data;
 		window.localStorage.setItem("user", JSON.stringify(data));
 		$.post('wList', list); 

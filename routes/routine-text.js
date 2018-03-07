@@ -50,14 +50,13 @@ new CronJob('* * * * *', function() {
       for(var id in routines) {
         var alertTime = routines[id].time;
 
-        if(alertTime == currTime && routines[id].on) {
+        if(alertTime == currTime && routines[id].on && list[user].phone != "") {
           //send the text msg
           client.messages.create({
             body: 'Alert from Telebabies: ' + alertTime,
             to: list[user].phone,  
             from: '+16195682588' // From a valid Twilio number
           })
-          .then((message) => console.log(message.sid));
         }
 
         //TODO: console.log(list[user].phone); send to specific phone

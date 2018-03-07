@@ -38,8 +38,9 @@ function confirm(e) {
 	console.log(dateObj.getMinutes());
 
 	var size = data.routine.length;
-	if (dateObj.getHours() && dateObj.getMinutes()) {
-
+	if ((dateObj.getHours() || dateObj.getHours() == 0) && 
+		(dateObj.getMinutes() || dateObj.getMinutes() == 0)) {
+		
 		var minuteStr = dateObj.getMinutes().toString();
 		if (dateObj.getMinutes().toString().length < 2) {
 			minuteStr = "0" + dateObj.getMinutes();
@@ -62,7 +63,8 @@ function confirm(e) {
 		var newJSON = {
 			"time": hourStr + ":" + minuteStr + M, 
 			"repeat": $("#demoRepeat").html(),
-			"id": size
+			"id": size,
+			"on": "true"
 		};
 
 		data.routine.push(newJSON);
