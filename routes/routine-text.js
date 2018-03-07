@@ -54,7 +54,7 @@ new CronJob('* * * * *', function() {
           //send the text msg
           client.messages.create({
             body: 'Alert from Telebabies: ' + alertTime,
-            to: list[user].phone,  
+            //to: '+14158607298',  //TODO: get this number from JSON
             from: '+16195682588' // From a valid Twilio number
           })
           .then((message) => console.log(message.sid));
