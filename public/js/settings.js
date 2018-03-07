@@ -87,9 +87,21 @@ function switchClick(e) {
 	if ($(this).attr('src') == '/images/switchoff.png') {
 		$(this).attr("src","/images/switchon.png");
 		$(rtnQuery).show(); 
+
+		data.routine[ID].on = true;
+		console.log(data.routine[ID].on);
+		list[data.username] = data;
+		window.localStorage.setItem("user", JSON.stringify(data));
+		$.post('wList', list); 
 	} else {
 		$(this).attr("src","/images/switchoff.png");
 		$(rtnQuery).hide(); 
+
+		data.routine[ID].on = false;
+		console.log(data.routine[ID].on);
+		list[data.username] = data;
+		window.localStorage.setItem("user", JSON.stringify(data));
+		$.post('wList', list); 
 	}
 }
 

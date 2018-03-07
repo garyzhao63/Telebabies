@@ -38,7 +38,7 @@ function changeUser(response) {
     "name":"Rick Ord",
     "username":"test123",
     "password":"123456",
-    "phone":"6191234567",
+    "phone":"",
     "picture":"http://jacobsschool.ucsd.edu/faculty/images/teacherawards/RickOrd.jpg",
   
     "recording": 
@@ -56,9 +56,9 @@ function changeUser(response) {
 
     "routine":
       [
-        {"time":"06:00 PM","repeat":"daily","id":"0"},
-        {"time":"04:15 PM","repeat":"daily","id":"1"},
-        {"time":"01:00 AM","repeat":"monthly","id":"2"}
+        {"time":"06:00 PM","repeat":"daily","id":"0","on":false},
+        {"time":"04:15 PM","repeat":"daily","id":"1","on":false},
+        {"time":"01:00 AM","repeat":"monthly","id":"2","on":false}
       ]
   }`;
 
