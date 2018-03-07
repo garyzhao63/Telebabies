@@ -38,7 +38,7 @@ function changeUser(response) {
     "name":"Rick Ord",
     "username":"test123",
     "password":"123456",
-    "phone":"6191234567",
+    "phone":"",
     "picture":"http://jacobsschool.ucsd.edu/faculty/images/teacherawards/RickOrd.jpg",
   
     "recording": 
