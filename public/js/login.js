@@ -31,7 +31,7 @@ function loginClick(e) {
 	 else {
 	    var jsonNew =  `{
 	    "name":"Rick Ord",
-	    "username":` + username + `,
+	    "username":"` + username + `",
 	    "password":"123456",
 	    "phone":"",
 	    "picture":"http://jacobsschool.ucsd.edu/faculty/images/teacherawards/RickOrd.jpg",
@@ -57,6 +57,7 @@ function loginClick(e) {
 	      ]
 	  }`;
 
+	  console.log(jsonNew);
 	  data[username] = JSON.parse(jsonNew);
 	  //data[username].name = response.name;
 	  //data[username].username = response.email;
